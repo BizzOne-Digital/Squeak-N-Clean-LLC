@@ -61,8 +61,8 @@ export default function HomePage() {
 
       <section className="section intro">
         <div className="container intro-grid">
-          <h2 className="reveal">More than clean. <em>Clearly cared for.</em></h2>
-          <div className="reveal">
+          <h2 data-reveal="fade-up">More than clean. <em>Clearly cared for.</em></h2>
+          <div data-reveal="stagger">
             <p className="lead">{business.positioning}</p>
             <p className="muted">{business.mission}</p>
             <Link href="/about" className="text-link">About Krystal Clean <ArrowRight size={16} aria-hidden="true" /></Link>
@@ -72,16 +72,16 @@ export default function HomePage() {
 
       <section className="section categories" aria-labelledby="services-heading">
         <div className="container">
-          <div className="section-heading">
+          <div className="section-heading" data-reveal="stagger">
             <h2 id="services-heading">Services for every kind of property</h2>
             <p>From a single home to multi-site commercial properties. Pricing is quoted per property — no fixed public rates.</p>
           </div>
-          <div className="category-grid">
+          <div className="category-grid" data-reveal="stagger">
             {[
               { id: 'residential', label: 'For homeowners', title: 'Residential services', text: 'Exterior cleaning that keeps homes, driveways, and outdoor living areas looking their best.', list: residentialServices, image: images.residential },
               { id: 'commercial', label: 'For businesses & communities', title: 'Commercial services', text: 'Keep buildings, storefronts, parking areas, and shared spaces ready for customers and residents.', list: commercialServices, image: images.commercial },
             ].map((c) => (
-              <article className="category-card on-dark reveal" key={c.id}>
+              <article className="category-card on-dark" key={c.id}>
                 <Image src={c.image.src} alt="" fill sizes="(max-width: 850px) 100vw, 50vw" />
                 <div className="category-content">
                   <p className="category-label">{c.label}</p>
@@ -100,7 +100,7 @@ export default function HomePage() {
 
       <section className="section compare-section" aria-labelledby="compare-heading">
         <div className="container compare-grid">
-          <div className="compare-intro reveal">
+          <div className="compare-intro" data-reveal="stagger">
             <p className="eyebrow">Before &amp; after</p>
             <h2 id="compare-heading">See the <em>difference.</em></h2>
             <p className="lead muted">
@@ -110,7 +110,8 @@ export default function HomePage() {
             <p className="small muted">Illustrative examples, not specific customer projects.</p>
             <Link href="/booking" className="text-link">Book an appointment <ArrowRight size={16} aria-hidden="true" /></Link>
           </div>
-          <div className="reveal">
+          {/* Section-level reveal only; the slider's own interaction is untouched. */}
+          <div data-reveal="fade-scale">
             <BeforeAfter pairs={comparisons} />
           </div>
         </div>
@@ -118,14 +119,14 @@ export default function HomePage() {
 
       <section className="section values">
         <div className="container values-grid">
-          <div>
+          <div data-reveal="stagger">
             <p className="eyebrow">Why Krystal Clean</p>
             <h2>Professional work. <em>Personal care.</em></h2>
             <p className="lead muted">The same standards apply whether it&apos;s a single driveway or a multi-building commercial property.</p>
           </div>
-          <ul className="value-list">
+          <ul className="value-list" data-reveal="stagger">
             {values.map(([title, text]) => (
-              <li key={title} className="reveal">
+              <li key={title}>
                 <Check size={20} aria-hidden="true" />
                 <div><h3>{title}</h3><p>{text}</p></div>
               </li>
@@ -136,20 +137,20 @@ export default function HomePage() {
 
       <section className="section serve">
         <div className="container serve-grid">
-          <div>
+          <div data-reveal="stagger">
             <h2>Who we serve</h2>
             <p className="lead">We support the people responsible for keeping properties clean, welcoming, and well maintained.</p>
           </div>
-          <ul className="serve-list">{audiences.map((a) => <li key={a}>{a}</li>)}</ul>
+          <ul className="serve-list" data-reveal="stagger">{audiences.map((a) => <li key={a}>{a}</li>)}</ul>
         </div>
       </section>
 
       <section className="section process on-dark" aria-labelledby="process-heading">
         <div className="container">
-          <h2 id="process-heading">Simple from start to finish</h2>
-          <ol className="process-grid">
+          <h2 id="process-heading" data-reveal="fade-up">Simple from start to finish</h2>
+          <ol className="process-grid" data-reveal="stagger">
             {steps.map(([title, text, Icon]) => (
-              <li key={title} className="reveal">
+              <li key={title}>
                 <Icon size={24} aria-hidden="true" />
                 <h3>{title}</h3>
                 <p>{text}</p>

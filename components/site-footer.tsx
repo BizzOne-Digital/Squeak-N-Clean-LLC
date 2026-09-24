@@ -5,7 +5,7 @@ import { business, details, mailHref, nav, telHref } from '@/lib/site'
 export function SiteFooter() {
   return (
     <footer className="footer on-dark">
-      <div className="container footer-grid">
+      <div className="container footer-grid" data-reveal="stagger">
         <div>
           <Logo />
           <p>Residential and commercial exterior cleaning in {details.serviceArea}.</p>

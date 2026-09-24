@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { Phone } from 'lucide-react'
 import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
+import { ScrollReveal } from '@/components/scroll-reveal'
 import { SplashScreen } from '@/components/splash-screen'
 import { business, jsonLd, localBusinessJsonLd, siteUrl, telHref } from '@/lib/site'
 import './globals.css'
@@ -36,6 +37,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <SiteHeader />
         <main id="main" tabIndex={-1}>{children}</main>
         <SiteFooter />
+        <ScrollReveal />
         <div className="mobile-cta">
           <a href={telHref}><Phone size={16} aria-hidden="true" /> Call now</a>
           <Link href="/booking">Book an Appointment</Link>

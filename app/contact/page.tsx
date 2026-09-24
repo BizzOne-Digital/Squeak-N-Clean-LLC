@@ -20,7 +20,7 @@ export default function ContactPage() {
         image={images.contact}
       />
       <section className="section">
-        <div className="container contact-grid">
+        <div className="container contact-grid" data-reveal="stagger">
           <div>
             <h2 className="h3">Contact details</h2>
             <ContactDetails />

@@ -71,14 +71,14 @@ export default function ServicesPage() {
         <section key={g.id} id={g.id} className={`section catalog catalog-${g.id}`} aria-labelledby={`${g.id}-heading`}>
           <div className="container catalog-grid">
             <div className="catalog-aside">
-              <h2 id={`${g.id}-heading`}>{g.title}</h2>
-              <p className="lead">{g.intro}</p>
-              <div className="catalog-image">
+              <h2 id={`${g.id}-heading`} data-reveal="fade-up">{g.title}</h2>
+              <p className="lead" data-reveal="fade-up">{g.intro}</p>
+              <div className="catalog-image" data-reveal="image">
                 <Image src={g.image.src} alt={g.image.alt} fill sizes="(max-width: 850px) 100vw, 40vw" />
               </div>
-              <Link href="/booking" className="button button-blue">Request pricing <ArrowRight size={16} aria-hidden="true" /></Link>
+              <Link href="/booking" className="button button-blue" data-reveal="fade-up">Booking <ArrowRight size={16} aria-hidden="true" /></Link>
             </div>
-            <ul className="service-list">
+            <ul className="service-list" data-reveal="stagger">
               {g.services.map((s) => <ServiceRow key={s.name} service={s} />)}
             </ul>
           </div>
@@ -87,7 +87,7 @@ export default function ServicesPage() {
 
       <section className="section transformation" aria-labelledby="transformation-heading">
         <div className="container">
-          <div className="section-heading">
+          <div className="section-heading" data-reveal="stagger">
             <div>
               <p className="eyebrow">Before &amp; after</p>
               <h2 id="transformation-heading">See the difference a <em>professional clean makes.</em></h2>

@@ -23,7 +23,7 @@ export default function BookingPage() {
           {url ? (
             <>
               {/* The external provider (set via NEXT_PUBLIC_BOOKING_URL) owns availability and scheduling. */}
-              <div className="booking-frame-wrap" data-loading-label="Loading available times…">
+              <div className="booking-frame-wrap" data-reveal="fade-up" data-loading-label="Loading available times…">
                 <iframe
                   src={url}
                   title={`Schedule an appointment with ${business.name}`}
@@ -40,7 +40,7 @@ export default function BookingPage() {
               </p>
             </>
           ) : (
-            <div className="booking-card booking-fallback">
+            <div className="booking-card booking-fallback" data-reveal="fade-up">
               <h2 className="h3">Online scheduling is being set up</h2>
               <p>
                 Our online booking calendar will be available here soon. In the meantime, call or email to request an

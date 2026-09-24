@@ -25,8 +25,8 @@ export default function AboutPage() {
 
       <section className="section intro">
         <div className="container intro-grid">
-          <h2>Our mission</h2>
-          <div>
+          <h2 data-reveal="fade-up">Our mission</h2>
+          <div data-reveal="stagger">
             <p className="lead">{business.mission}</p>
             <p className="muted">
               We serve both residential and commercial customers — from homeowners to property managers, HOAs, and businesses —
@@ -38,7 +38,7 @@ export default function AboutPage() {
       </section>
 
       <section className="vision on-dark">
-        <div className="container">
+        <div className="container" data-reveal="stagger">
           <p className="eyebrow">Our vision</p>
           <blockquote>{business.vision}</blockquote>
         </div>
@@ -47,19 +47,19 @@ export default function AboutPage() {
       {business.story.length > 0 && (
         <section className="section intro">
           <div className="container intro-grid">
-            <h2>Our story</h2>
-            <div>{business.story.map((p) => <p key={p} className="muted">{p}</p>)}</div>
+            <h2 data-reveal="fade-up">Our story</h2>
+            <div data-reveal="stagger">{business.story.map((p) => <p key={p} className="muted">{p}</p>)}</div>
           </div>
         </section>
       )}
 
       <section className="section values">
         <div className="container values-grid">
-          <div>
+          <div data-reveal="stagger">
             <h2>Our approach</h2>
             <p className="lead muted">What every residential and commercial customer can expect from Krystal Clean.</p>
           </div>
-          <ul className="value-list">
+          <ul className="value-list" data-reveal="stagger">
             {approach.map(([title, text]) => (
               <li key={title}>
                 <div><h3>{title}</h3><p>{text}</p></div>

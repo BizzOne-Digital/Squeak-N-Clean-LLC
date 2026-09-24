@@ -17,7 +17,7 @@ export function CtaBand({
   return (
     <section className="cta-band on-dark">
       <Image src={images.cta.src} alt={images.cta.alt} fill sizes="100vw" className="cta-image" />
-      <div className="container cta-grid">
+      <div className="container cta-grid" data-reveal="stagger">
         <div>
           <h2>{title}</h2>
           <p>{text}</p>
