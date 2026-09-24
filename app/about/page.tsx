@@ -7,12 +7,12 @@ import { business, images, pageMeta } from '@/lib/site'
 export const metadata = pageMeta(
   '/about',
   'About Us',
-  'Krystal Clean Pressure Washing is a residential and commercial exterior cleaning company in Texas committed to high-quality, reliable, and affordable pressure washing.',
+  'Squeak N Clean LLC is a residential and commercial exterior cleaning company in Texas committed to high-quality, reliable, and affordable pressure washing.',
 )
 
 // The three commitments named in the vision statement itself.
 const visionPillars = [
-  ['Long-term customer  relationships', 'Earning repeat work from homeowners, businesses, and managed properties through dependable service.'],
+  ['Long-term customer relationships', 'Earning repeat work from homeowners, businesses, and managed properties through dependable service.'],
   ['Professional equipment', 'Continuing to invest in the right tools for residential and commercial surfaces.'],
   ['Multiple service markets', 'Growing the range of residential and commercial exterior cleaning we offer across Texas.'],
 ]
