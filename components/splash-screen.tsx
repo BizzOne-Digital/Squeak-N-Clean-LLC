@@ -1,4 +1,5 @@
 import { Logo } from './logo'
+import { UplinkLoader } from './uplink-loader'
 
 // Pure CSS splash: no React state, so no hydration mismatch and no JS needed to dismiss it.
 // The inline script marks the session before first paint; later loads in the same session
@@ -10,8 +11,8 @@ export function SplashScreen() {
     <>
       <script dangerouslySetInnerHTML={{ __html: seenScript }} />
       <div className="splash" aria-hidden="true">
+        <UplinkLoader className="splash-loader" />
         <Logo className="splash-logo" />
-        <span className="splash-rule" />
       </div>
     </>
   )

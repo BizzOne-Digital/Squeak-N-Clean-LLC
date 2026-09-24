@@ -1,9 +1,9 @@
 "use client"
 
-import { Suspense, useMemo, useRef } from "react"
+import { Suspense, useMemo, useRef, useState } from "react"
 import { Canvas, useFrame, useThree } from "@react-three/fiber"
 import { OrthographicCamera, useTexture } from "@react-three/drei"
-import { useScroll } from "framer-motion"
+import { useMotionValueEvent, useScroll } from "framer-motion"
 import * as THREE from "three"
 
 const vertexShader = `
@@ -78,6 +78,17 @@ const backFragmentShader = `
   }
 `
 
+// Scroll progress → dissolve amount. The first and last stretches of the scroll hold the
+// fully "before" and fully "after" images; the shader and the labels both read this.
+const DISSOLVE_START = 0.12
+const DISSOLVE_END = 0.8
+const dissolveAt = (progress: number) => Math.min(1, Math.max(0, (progress - DISSOLVE_START) / (DISSOLVE_END - DISSOLVE_START)))
+type Phase = "before" | "dissolving" | "after"
+const phaseAt = (progress: number): Phase => {
+  const d = dissolveAt(progress)
+  return d <= 0 ? "before" : d >= 1 ? "after" : "dissolving"
+}
+
 type ScrollProgress = {
   get: () => number
 }
@@ -116,7 +127,7 @@ function Scene({ imageFront, imageBack, scrollYProgress }: SceneProps) {
   }), [backTexture, size])
 
   useFrame(() => {
-    const progress = scrollYProgress.get()
+    const progress = dissolveAt(scrollYProgress.get())
     const grayscale = Math.min(1, progress / 0.4)
     const accelerated = Math.min(1, progress * 1.1)
 
@@ -150,28 +161,35 @@ function Scene({ imageFront, imageBack, scrollYProgress }: SceneProps) {
 export type ScrollDissolveRevealProps = {
   imageFront: string
   imageBack: string
+  /** Accessible description of the comparison (the canvas itself has no alt text). */
+  label: string
   className?: string
   containerClassName?: string
   scrollContainerRef?: React.RefObject<HTMLElement | null>
 }
 
-export function ScrollDissolveReveal({ imageFront, imageBack, className, containerClassName, scrollContainerRef }: ScrollDissolveRevealProps) {
+export function ScrollDissolveReveal({ imageFront, imageBack, label, className, containerClassName, scrollContainerRef }: ScrollDissolveRevealProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"],
     ...(scrollContainerRef && { container: scrollContainerRef }),
   })
+  // "Before" only on the untouched image, "After" only once it has fully dissolved.
+  const [phase, setPhase] = useState<Phase>("before")
+  useMotionValueEvent(scrollYProgress, "change", (p) => setPhase(phaseAt(p)))
 
   return (
     <div ref={containerRef} className={`scroll-dissolve-reveal ${containerClassName ?? ""}`}>
-      <div className={`scroll-dissolve-reveal-sticky ${className ?? ""}`}>
+      <div className={`scroll-dissolve-reveal-sticky ${className ?? ""}`} role="img" aria-label={label} data-phase={phase}>
         <Canvas dpr={1} gl={{ antialias: false, alpha: false }}>
           <OrthographicCamera makeDefault manual left={-1} right={1} top={1} bottom={-1} near={0.1} far={10} position={[0, 0, 1]} />
           <Suspense fallback={null}>
             <Scene imageFront={imageFront} imageBack={imageBack} scrollYProgress={scrollYProgress} />
           </Suspense>
         </Canvas>
+        <span className="dissolve-label dissolve-label-before" aria-hidden="true">Before</span>
+        <span className="dissolve-label dissolve-label-after" aria-hidden="true">After</span>
       </div>
     </div>
   )

@@ -63,6 +63,7 @@ export const images = {
   services: { src: '/Gemini_Generated_Image_kcyda4kcyda4kcyd.jfif', alt: 'Professional pressure washing service' },
   contact: { src: '/Gemini_Generated_Image_rpou0rrpou0rrpou.jfif', alt: 'Property exterior ready for professional cleaning' },
   booking: { src: '/hero.webp', alt: 'Worker pressure washing a concrete driveway in front of a single-story home' },
+  cta: { src: '/Gemini_Generated_Image_sle08nsle08nsle0.jfif', alt: '' }, // decorative background
   notFound: { src: '/og.jpg', alt: 'Krystal Clean Pressure Washing' },
   residential: {
     src: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80',

@@ -85,7 +85,25 @@ export default function ServicesPage() {
         </section>
       ))}
 
-      <ScrollDissolveReveal imageFront="/before.jfif" imageBack="/after.jfif" />
+      <section className="section transformation" aria-labelledby="transformation-heading">
+        <div className="container">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">Before &amp; after</p>
+              <h2 id="transformation-heading">See the difference a <em>professional clean makes.</em></h2>
+            </div>
+            <p>
+              Keep scrolling to watch a stained patio, steps, and brick wall turn clean. Dirt, algae, and buildup like this
+              are exactly what pressure washing removes. <span className="small">Illustrative example, not a specific customer project.</span>
+            </p>
+          </div>
+          <ScrollDissolveReveal
+            imageFront="/before.jfif"
+            imageBack="/after.jfif"
+            label="Before and after pressure washing: a stained, algae-covered patio and steps becomes clean and bright."
+          />
+        </div>
+      </section>
       <CtaBand title="Not sure which service you need?" text="Tell us about your property and we'll help you choose the right service and provide pricing." secondary={{ href: '/contact', label: 'Contact us' }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(servicesJsonLd)} />
     </>

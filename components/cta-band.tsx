@@ -1,6 +1,7 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight, Phone } from 'lucide-react'
-import { business, telHref } from '@/lib/site'
+import { business, images, telHref } from '@/lib/site'
 
 type Props = {
   title?: string
@@ -15,6 +16,7 @@ export function CtaBand({
 }: Props) {
   return (
     <section className="cta-band on-dark">
+      <Image src={images.cta.src} alt={images.cta.alt} fill sizes="100vw" className="cta-image" />
       <div className="container cta-grid">
         <div>
           <h2>{title}</h2>
