@@ -331,7 +331,24 @@ main:focus { outline: none; }
 
 /* ─── About vision ────────────────────────────────────────────────────── */
 .vision { padding: var(--section-y) 0; background: radial-gradient(60% 90% at 0% 100%, rgb(11 79 156 / 0.5) 0%, transparent 70%), var(--blue-deep); }
-.vision blockquote { max-width: 30ch; padding-left: clamp(20px, 3vw, 40px); border-left: 3px solid var(--yellow); font-family: var(--font-accent); font-size: clamp(1.6rem, 1.1rem + 2vw, 2.75rem); font-style: italic; line-height: 1.3; letter-spacing: -0.01em; text-wrap: balance; }
+.vision { position: relative; overflow: hidden; }
+.vision-grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(40px, 7vw, 112px); align-items: center; }
+.vision-quote { position: relative; isolation: isolate; margin: 0; }
+/* Oversized serif quotation mark, decorative only. */
+.vision-quote blockquote::before { content: '\201C'; position: absolute; z-index: -1; top: -0.2em; left: -0.1em; color: rgb(255 255 255 / 0.07); font-family: var(--font-accent); font-size: clamp(9rem, 6rem + 12vw, 16rem); line-height: 1; pointer-events: none; }
+.vision-quote blockquote { position: relative; margin: 0; }
+.vision-quote blockquote p { max-width: 24ch; font-family: var(--font-accent); font-size: clamp(1.7rem, 1.1rem + 2.3vw, 3rem); font-style: italic; line-height: 1.25; letter-spacing: -0.015em; text-wrap: balance; }
+.vision-quote figcaption { display: flex; align-items: center; gap: 12px; margin-top: 32px; color: var(--on-dark-muted); font-size: var(--text-small); font-weight: 700; letter-spacing: 0.06em; }
+.vision-quote figcaption::before { content: ''; width: 40px; height: 2px; background: var(--yellow); }
+.vision-quote .eyebrow { font-family: var(--font-body); font-size: var(--text-label); letter-spacing: 0.18em; line-height: 1.7; }
+.vision-pillars { padding: clamp(28px, 4vw, 44px); background: rgb(255 255 255 / 0.04); border: 1px solid var(--on-dark-line); border-radius: var(--radius-md); }
+.vision-pillars-label { color: var(--yellow); font-size: var(--text-label); font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; }
+.vision-pillars ol { margin-top: 12px; }
+.vision-pillars li { display: flex; gap: 18px; padding: 22px 0; border-bottom: 1px solid var(--on-dark-line); }
+.vision-pillars li:last-child { padding-bottom: 0; border-bottom: 0; }
+.vision-num { flex: none; min-width: 2ch; color: var(--yellow); font-family: var(--font-accent); font-size: 1.25rem; font-style: italic; line-height: 1.3; }
+.vision-pillars h3 { font-size: 1.125rem; }
+.vision-pillars li p { margin-top: 6px; color: var(--on-dark-muted); font-size: 0.9375rem; }
 
 /* ─── Services catalog ────────────────────────────────────────────────── */
 .catalog-grid { grid-template-columns: 5fr 7fr; align-items: start; }
@@ -444,6 +461,7 @@ main:focus { outline: none; }
   body { padding-bottom: calc(72px + env(safe-area-inset-bottom)); }
 
   .compare-grid { grid-template-columns: 1fr; }
+  .vision-grid { grid-template-columns: 1fr; }
   /* Vertical timeline on tablet and mobile */
   .process-grid { grid-template-columns: 1fr; gap: 40px; }
   .process-grid li { padding-left: 80px; }

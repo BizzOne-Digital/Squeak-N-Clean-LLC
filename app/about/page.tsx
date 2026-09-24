@@ -10,6 +10,13 @@ export const metadata = pageMeta(
   'Krystal Clean Pressure Washing is a residential and commercial exterior cleaning company in Texas committed to high-quality, reliable, and affordable pressure washing.',
 )
 
+// The three commitments named in the vision statement itself.
+const visionPillars = [
+  ['Long-term customer relationships', 'Earning repeat work from homeowners, businesses, and managed properties through dependable service.'],
+  ['Professional equipment', 'Continuing to invest in the right tools for residential and commercial surfaces.'],
+  ['Multiple service markets', 'Growing the range of residential and commercial exterior cleaning we offer across Texas.'],
+]
+
 const approach = [
   ['Quality', 'Thorough, careful work on every surface we clean.'],
   ['Reliability', 'Dependable scheduling and clear communication.'],
@@ -37,10 +44,29 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="vision on-dark">
-        <div className="container" data-reveal="stagger">
-          <p className="eyebrow">Our vision</p>
-          <blockquote>{business.vision}</blockquote>
+      <section className="vision on-dark" aria-labelledby="vision-heading">
+        <div className="container vision-grid">
+          <figure className="vision-quote" data-reveal="stagger">
+            <h2 id="vision-heading" className="eyebrow">Our vision</h2>
+            <blockquote>
+              <p>{business.vision}</p>
+            </blockquote>
+            <figcaption>{business.name}</figcaption>
+          </figure>
+          <div className="vision-pillars">
+            <p className="vision-pillars-label" data-reveal="fade-up">Built on three commitments</p>
+            <ol data-reveal="stagger">
+              {visionPillars.map(([title, text], i) => (
+                <li key={title}>
+                  <span className="vision-num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+                  <div>
+                    <h3>{title}</h3>
+                    <p>{text}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
         </div>
       </section>
 
@@ -57,7 +83,7 @@ export default function AboutPage() {
         <div className="container values-grid">
           <div data-reveal="stagger">
             <h2>Our approach</h2>
-            <p className="lead muted">What every residential and commercial customer can expect from Krystal Clean.</p>
+            <p className="lead muted">What every residential and commercial customer can expect from Squeak N Clean.</p>
           </div>
           <ul className="value-list" data-reveal="stagger">
             {approach.map(([title, text]) => (

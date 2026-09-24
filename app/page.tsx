@@ -6,13 +6,13 @@ import { CtaBand } from '@/components/cta-band'
 import { audiences, commercialServices, residentialServices } from '@/lib/services'
 import { business, comparisons, images, pageMeta, telHref } from '@/lib/site'
 
-const homeTitle = 'Krystal Clean Pressure Washing | Residential & Commercial Pressure Washing in Texas'
+const homeTitle = 'Squeak N Clean LLC | Residential & Commercial Pressure Washing in Texas'
 
 // Root page shares the layout segment, so the title template doesn't apply — use an absolute title.
 export const metadata = pageMeta(
   '/',
   homeTitle,
-  'Krystal Clean Pressure Washing provides residential and commercial exterior cleaning in Texas — house washing, driveway cleaning, roof soft washing, storefront and parking lot cleaning. Book an appointment online.',
+  'Squeak N Clean LLC provides residential and commercial exterior cleaning in Texas — house washing, driveway cleaning, roof soft washing, storefront and parking lot cleaning. Book an appointment online.',
 )
 
 const values = [
@@ -39,7 +39,7 @@ const steps: { title: string; text: string; actions?: { href: string; label: str
   },
   {
     title: 'We handle the cleaning',
-    text: 'Krystal Clean completes the requested exterior cleaning, leaving your property clean and presentable.',
+    text: 'Squeak N Clean completes the requested exterior cleaning, leaving your property clean and presentable.',
   },
 ]
 
@@ -79,7 +79,7 @@ export default function HomePage() {
           <div data-reveal="stagger">
             <p className="lead">{business.positioning}</p>
             <p className="muted">{business.mission}</p>
-            <Link href="/about" className="text-link">About Krystal Clean <ArrowRight size={16} aria-hidden="true" /></Link>
+            <Link href="/about" className="text-link">About Squeak N Clean <ArrowRight size={16} aria-hidden="true" /></Link>
           </div>
         </div>
       </section>
@@ -134,7 +134,7 @@ export default function HomePage() {
       <section className="section values">
         <div className="container values-grid">
           <div data-reveal="stagger">
-            <p className="eyebrow">Why Krystal Clean</p>
+            <p className="eyebrow">Why Squeak N Clean</p>
             <h2>Professional work. <em>Personal care.</em></h2>
             <p className="lead muted">The same standards apply whether it&apos;s a single driveway or a multi-building commercial property.</p>
           </div>

@@ -21,7 +21,7 @@ const groups = [
 const servicesJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
-  name: 'Krystal Clean Pressure Washing services',
+  name: 'Squeak N Clean LLC services',
   url: `${siteUrl}/services`,
   itemListElement: groups.flatMap((g) => g.services.map((s) => ({ category: g.title, ...s }))).map((s, i) => ({
     '@type': 'ListItem',

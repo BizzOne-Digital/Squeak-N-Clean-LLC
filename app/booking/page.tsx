@@ -5,7 +5,7 @@ import { appointmentMailHref, business, details, images, pageMeta, telHref } fro
 export const metadata = pageMeta(
   '/booking',
   'Book an Appointment',
-  'Schedule residential or commercial pressure washing with Krystal Clean Pressure Washing. Choose an available appointment time online.',
+  'Schedule residential or commercial pressure washing with Squeak N Clean LLC. Choose an available appointment time online.',
 )
 
 export default function BookingPage() {
@@ -15,7 +15,7 @@ export default function BookingPage() {
       <PageHero
         eyebrow="Booking"
         title="Book an appointment"
-        intro="Appointments are subject to availability. Krystal Clean may contact you if additional information about your property or service is needed."
+        intro="Appointments are subject to availability. Squeak N Clean may contact you if additional information about your property or service is needed."
         image={images.booking}
       />
       <section className="section booking">

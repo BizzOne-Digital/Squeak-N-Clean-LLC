@@ -9,8 +9,8 @@ export function Logo({ className = '' }: { className?: string }) {
         <Droplets size={22} fill="currentColor" />
       </span>
       <span className="logo-text">
-        <strong>KRYSTAL</strong> <b>CLEAN</b>
-        <small>PRESSURE WASHING</small>
+        <strong>SQUEAK N</strong> <b>CLEAN</b>
+        <small>LLC</small>
       </span>
     </span>
   )

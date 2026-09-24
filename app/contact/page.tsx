@@ -7,7 +7,7 @@ import { business, images, pageMeta } from '@/lib/site'
 export const metadata = pageMeta(
   '/contact',
   'Contact Us',
-  `Contact Krystal Clean Pressure Washing by phone at ${business.phoneDisplay} or email for residential and commercial pressure washing pricing, or book an appointment online.`,
+  `Contact Squeak N Clean LLC by phone at ${business.phoneDisplay} or email for residential and commercial pressure washing pricing, or book an appointment online.`,
 )
 
 export default function ContactPage() {
@@ -15,7 +15,7 @@ export default function ContactPage() {
     <>
       <PageHero
         eyebrow="Contact"
-        title="Talk to Krystal Clean"
+        title="Talk to Squeak N Clean"
         intro="Call or email to ask a question or request pricing. Tell us about your property and the cleaning you need, and we'll help with the right next step."
         image={images.contact}
       />

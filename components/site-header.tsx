@@ -38,7 +38,7 @@ export function SiteHeader() {
   return (
     <header className="site-header" data-solid={scrolled || open}>
       <nav className="nav container" aria-label="Main">
-        <Link href="/" className="nav-brand" aria-label="Krystal Clean Pressure Washing home">
+        <Link href="/" className="nav-brand" aria-label="Squeak N Clean LLC home">
           <Logo />
         </Link>
         <button

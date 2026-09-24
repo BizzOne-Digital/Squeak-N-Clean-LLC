@@ -2,14 +2,14 @@ import type { Metadata } from 'next'
 
 // Confirmed business facts (PRD). Do not add details here unless the client supplies them.
 export const business = {
-  name: 'Krystal Clean Pressure Washing',
-  shortName: 'Krystal Clean',
+  name: 'Squeak N Clean LLC',
+  shortName: 'Squeak N Clean',
   phone: '2816915874',
   phoneDisplay: '(281) 691-5874',
   phoneE164: '+12816915874',
   email: 'michaeljwilliams434@gmail.com',
   positioning:
-    'Krystal Clean Pressure Washing is a residential and commercial exterior cleaning company committed to delivering high-quality, reliable, and affordable pressure washing services.',
+    'Squeak N Clean LLC is a residential and commercial exterior cleaning company committed to delivering high-quality, reliable, and affordable pressure washing services.',
   mission:
     'Our mission is to enhance the appearance and value of our customers’ properties through exceptional workmanship and customer service.',
   vision:
@@ -64,7 +64,7 @@ export const images = {
   contact: { src: '/contact-hero.webp', alt: 'Property exterior ready for professional cleaning' },
   booking: { src: '/hero.webp', alt: 'Worker pressure washing a concrete driveway in front of a single-story home' },
   cta: { src: '/cta-background.webp', alt: '' }, // decorative background
-  notFound: { src: '/og.jpg', alt: 'Krystal Clean Pressure Washing' },
+  notFound: { src: '/og.jpg', alt: 'Squeak N Clean LLC' },
   residential: {
     src: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80',
     alt: 'Modern two-story home exterior with a front lawn',
