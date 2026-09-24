@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { CtaBand } from '@/components/cta-band'
 import { PageHero } from '@/components/page-hero'
+import { ScrollDissolveReveal } from '@/components/ui/scroll-dissolve-reveal'
 import { commercialServices, residentialServices, type Service } from '@/lib/services'
 import { businessId, details, images, jsonLd, pageMeta, siteUrl } from '@/lib/site'
 
@@ -84,6 +85,7 @@ export default function ServicesPage() {
         </section>
       ))}
 
+      <ScrollDissolveReveal imageFront="/before.jfif" imageBack="/after.jfif" />
       <CtaBand title="Not sure which service you need?" text="Tell us about your property and we'll help you choose the right service and provide pricing." secondary={{ href: '/contact', label: 'Contact us' }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(servicesJsonLd)} />
     </>
