@@ -29,7 +29,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en" className={`${body.variable} ${heading.variable}`} suppressHydrationWarning>
       <body>
         <noscript>
-          <style>{'.site-header{background-color:rgb(10 47 87 / 0.92)}'}</style>
+          <style>{'.site-header{background-color:rgb(0 0 0 / 0.72)}'}</style>
         </noscript>
         <SplashScreen />
         <a href="#main" className="skip-link">Skip to main content</a>

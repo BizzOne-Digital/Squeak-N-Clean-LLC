@@ -1,9 +1,10 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight, CalendarDays, Check, Home, Phone, Sparkles } from 'lucide-react'
+import { BeforeAfter } from '@/components/before-after'
 import { CtaBand } from '@/components/cta-band'
 import { audiences, commercialServices, residentialServices } from '@/lib/services'
-import { business, images, pageMeta, telHref } from '@/lib/site'
+import { business, comparisons, images, pageMeta, telHref } from '@/lib/site'
 
 const homeTitle = 'Krystal Clean Pressure Washing | Residential & Commercial Pressure Washing in Texas'
 
@@ -93,6 +94,24 @@ export default function HomePage() {
                 </div>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section compare-section" aria-labelledby="compare-heading">
+        <div className="container compare-grid">
+          <div className="compare-intro reveal">
+            <p className="eyebrow">Before &amp; after</p>
+            <h2 id="compare-heading">See the <em>difference.</em></h2>
+            <p className="lead muted">
+              Dirt, algae, and staining build up slowly on driveways, patios, and exterior walls. Professional
+              cleaning lifts them away and brings residential and commercial properties back to their best.
+            </p>
+            <p className="small muted">Illustrative examples, not specific customer projects.</p>
+            <Link href="/booking" className="text-link">Book an appointment <ArrowRight size={16} aria-hidden="true" /></Link>
+          </div>
+          <div className="reveal">
+            <BeforeAfter pairs={comparisons} />
           </div>
         </div>
       </section>

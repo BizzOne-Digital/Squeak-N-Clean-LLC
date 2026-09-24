@@ -75,6 +75,26 @@ export const images = {
   },
 }
 
+// Before/after pairs for the homepage comparison slider. Each pair must be the same scene,
+// same framing (both images the same size). Add or replace entries to update the carousel.
+export type ComparisonImage = { src: string; alt: string }
+export type Comparison = { title: string; description: string; before: ComparisonImage; after: ComparisonImage }
+
+export const comparisons: Comparison[] = [
+  {
+    title: 'Patio & Step Cleaning',
+    description: 'Algae, grime, and staining lifted from a concrete patio, steps, and the surrounding brickwork.',
+    before: { src: '/before.jfif', alt: 'Before cleaning: a patio and steps stained dark with algae and grime beside a brick wall' },
+    after: { src: '/after.jfif', alt: 'After cleaning: the same patio and steps, clean and bright' },
+  },
+  {
+    title: 'House & Driveway Washing',
+    description: 'Driveway staining and exterior buildup cleared from the front of a two-story brick home.',
+    before: { src: '/another before.jfif', alt: 'Before cleaning: a brick home with a dark, stained driveway and dirty garage door' },
+    after: { src: '/anotherafter.jfif', alt: 'After cleaning: the same home with a clean driveway and bright exterior' },
+  },
+]
+
 export function pageMeta(path: string, title: string, description: string): Metadata {
   return {
     title: path === '/' ? { absolute: title } : title,

@@ -55,8 +55,8 @@
   --splash-exit: 1.9s;
 
   /* Glass header */
-  --glass-tint: rgb(10 47 87 / 0.28);
-  --glass-tint-solid: rgb(10 47 87 / 0.86);
+  --glass-tint: rgb(0 0 0 / 0.28);
+  --glass-tint-solid: rgb(0 0 0 / 0.72);
 }
 
 /* ─── Base ─────────────────────────────────────────────────────────────── */
@@ -242,6 +242,52 @@ main:focus { outline: none; }
 .category-content li { display: flex; align-items: flex-start; gap: 8px; line-height: 1.45; }
 .category-content li svg { flex: none; margin-top: 2px; color: var(--yellow); }
 
+/* ─── Before / after comparison (homepage) ────────────────────────────── */
+.compare-grid { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: clamp(32px, 5vw, 80px); align-items: center; }
+.compare-intro .lead { margin-top: 20px; }
+.compare-intro .small { margin-top: 16px; }
+.compare-intro .text-link { margin-top: 12px; }
+.ba-frame {
+  --pos: 50;
+  position: relative; aspect-ratio: 2816 / 1536; overflow: hidden;
+  background: var(--line); border-radius: var(--radius-md); box-shadow: var(--shadow-md);
+  cursor: ew-resize; touch-action: pan-y; user-select: none; -webkit-user-select: none;
+  animation: ba-in 0.5s var(--ease-out);
+}
+.ba-image { object-fit: cover; pointer-events: none; }
+.ba-before { position: absolute; inset: 0; clip-path: inset(0 calc(100% - var(--pos) * 1%) 0 0); }
+.ba-divider { position: absolute; top: 0; bottom: 0; left: calc(var(--pos) * 1%); width: 2px; translate: -50% 0; background: var(--white); box-shadow: 0 0 12px rgb(0 0 0 / 0.25); pointer-events: none; }
+.ba-handle {
+  position: absolute; top: 50%; left: calc(var(--pos) * 1%); translate: -50% -50%;
+  display: flex; align-items: center; justify-content: center; gap: 2px;
+  width: 52px; height: 52px; color: var(--ink); background: rgb(255 255 255 / 0.94); border-radius: 50%;
+  box-shadow: 0 6px 20px -6px rgb(0 0 0 / 0.45); transition: scale var(--dur-fast) var(--ease-out);
+}
+.ba-frame:hover .ba-handle, .ba-frame[data-dragging='true'] .ba-handle { scale: 1.06; }
+.ba-handle:focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
+.ba-label {
+  position: absolute; top: clamp(12px, 2vw, 20px); padding: 6px 10px;
+  color: var(--white); background: rgb(0 0 0 / 0.5); border-radius: 2px;
+  font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; pointer-events: none;
+  transition: opacity var(--dur-fast) linear;
+}
+/* Fade each label out as the divider covers its side. */
+.ba-label-before { left: clamp(12px, 2vw, 20px); opacity: clamp(0, calc((var(--pos) - 12) / 8), 1); }
+.ba-label-after { right: clamp(12px, 2vw, 20px); opacity: clamp(0, calc((88 - var(--pos)) / 8), 1); }
+.compare-meta { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 20px 40px; margin-top: 24px; }
+.compare-caption { max-width: 52ch; }
+.compare-caption h3 { font-size: 1.125rem; }
+.compare-caption p { margin-top: 4px; color: var(--muted); font-size: var(--text-small); }
+.compare-nav { display: flex; align-items: center; gap: 12px; }
+.compare-arrow { display: grid; place-items: center; width: 44px; height: 44px; color: var(--ink); background: none; border: 1px solid var(--line); border-radius: var(--radius-sm); cursor: pointer; transition: border-color var(--dur) var(--ease-out), color var(--dur) var(--ease-out); }
+.compare-arrow:hover { color: var(--blue); border-color: var(--blue); }
+.compare-count { min-width: 5ch; color: var(--muted); font-size: var(--text-small); font-variant-numeric: tabular-nums; text-align: center; }
+.compare-dots { display: flex; gap: 4px; margin-left: 8px; }
+.compare-dots button { width: 32px; height: 44px; padding: 0; background: none; border: 0; cursor: pointer; }
+.compare-dots button::before { content: ''; display: block; height: 3px; background: var(--line); border-radius: 2px; transition: background-color var(--dur) var(--ease-out); }
+.compare-dots button[aria-current='true']::before { background: var(--blue); }
+@keyframes ba-in { from { opacity: 0; } }
+
 /* ─── Values ──────────────────────────────────────────────────────────── */
 .values-grid { align-items: start; }
 .values-grid > div:first-child { position: sticky; top: calc(var(--header-h) + 40px); }
@@ -396,6 +442,7 @@ main:focus { outline: none; }
   .mobile-cta a:last-child { color: var(--ink); background: var(--yellow); border-color: var(--yellow); box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.45); }
   body { padding-bottom: calc(72px + env(safe-area-inset-bottom)); }
 
+  .compare-grid { grid-template-columns: 1fr; }
   .intro-grid, .section-heading, .values-grid, .serve-grid, .cta-grid, .contact-grid, .catalog-grid, .category-grid { grid-template-columns: 1fr; }
   .section-heading { gap: 16px; }
   .values-grid > div:first-child, .catalog-aside { position: static; }
@@ -423,6 +470,8 @@ main:focus { outline: none; }
   .service-row { grid-template-columns: 1fr; gap: 4px; padding: 26px 0; }
   .contact-list > div { grid-template-columns: 1fr; gap: 6px; }
   .booking-frame { height: 780px; min-height: 0; }
+  .ba-frame { aspect-ratio: 4 / 3; }
+  .ba-handle { width: 48px; height: 48px; }
   .footer-grid { grid-template-columns: 1fr; }
 }
 
