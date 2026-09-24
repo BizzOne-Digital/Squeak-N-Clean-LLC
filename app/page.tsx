@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowRight, CalendarDays, Check, Home, Phone, Sparkles } from 'lucide-react'
+import { ArrowRight, Check, Phone } from 'lucide-react'
 import { BeforeAfter } from '@/components/before-after'
 import { CtaBand } from '@/components/cta-band'
 import { audiences, commercialServices, residentialServices } from '@/lib/services'
@@ -23,11 +23,25 @@ const values = [
   ['Customer service', 'A service relationship built around your priorities.'],
 ]
 
-const steps = [
-  ['Choose your service', 'Find the residential or commercial service that fits your property.', Home],
-  ['Pick an available time', 'Schedule through the online booking calendar, or call us.', CalendarDays],
-  ['We handle the cleaning', 'Krystal Clean completes the requested exterior cleaning.', Sparkles],
-] as const
+const steps: { title: string; text: string; actions?: { href: string; label: string }[] }[] = [
+  {
+    title: 'Choose your service',
+    text: 'Find the residential or commercial service that fits your property. Not sure which one? Just ask.',
+    actions: [{ href: '/services', label: 'Browse services' }],
+  },
+  {
+    title: 'Pick an available time',
+    text: 'Book online through the scheduling calendar, or call and we’ll find a time that works.',
+    actions: [
+      { href: '/booking', label: 'Book online' },
+      { href: telHref, label: `Call ${business.phoneDisplay}` },
+    ],
+  },
+  {
+    title: 'We handle the cleaning',
+    text: 'Krystal Clean completes the requested exterior cleaning, leaving your property clean and presentable.',
+  },
+]
 
 export default function HomePage() {
   return (
@@ -147,13 +161,30 @@ export default function HomePage() {
 
       <section className="section process on-dark" aria-labelledby="process-heading">
         <div className="container">
-          <h2 id="process-heading" data-reveal="fade-up">Simple from start to finish</h2>
+          <div className="section-heading" data-reveal="stagger">
+            <div>
+              <p className="eyebrow">How it works</p>
+              <h2 id="process-heading">Simple from start to <em>finish.</em></h2>
+            </div>
+            <p>Three steps from your first look to a cleaner property, with pricing based on your property and the work it needs.</p>
+          </div>
           <ol className="process-grid" data-reveal="stagger">
-            {steps.map(([title, text, Icon]) => (
-              <li key={title}>
-                <Icon size={24} aria-hidden="true" />
-                <h3>{title}</h3>
-                <p>{text}</p>
+            {steps.map((step, i) => (
+              <li key={step.title}>
+                <span className="process-num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+                <h3>{step.title}</h3>
+                <p>{step.text}</p>
+                {step.actions && (
+                  <div className="process-actions">
+                    {step.actions.map((a) =>
+                      a.href.startsWith('tel:') ? (
+                        <a key={a.href} href={a.href} className="text-link"><Phone size={15} aria-hidden="true" /> {a.label}</a>
+                      ) : (
+                        <Link key={a.href} href={a.href} className="text-link">{a.label} <ArrowRight size={15} aria-hidden="true" /></Link>
+                      ),
+                    )}
+                  </div>
+                )}
               </li>
             ))}
           </ol>

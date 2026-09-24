@@ -306,13 +306,18 @@ main:focus { outline: none; }
 
 /* ─── Process ─────────────────────────────────────────────────────────── */
 .process { background: radial-gradient(60% 80% at 100% 0%, rgb(11 79 156 / 0.45) 0%, transparent 70%), var(--blue-deep); }
-.process-grid { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: clamp(40px, 5vw, 64px); border-top: 1px solid var(--on-dark-line); counter-reset: step; }
-.process-grid li { padding: 36px 36px 8px 0; counter-increment: step; }
-.process-grid li + li { padding-left: 36px; border-left: 1px solid var(--on-dark-line); }
-.process-grid li::before { content: counter(step, decimal-leading-zero); display: block; margin-bottom: 28px; color: var(--yellow); font-family: var(--font-accent); font-size: 2.25rem; font-style: italic; line-height: 1; }
-.process-grid svg { color: var(--on-dark-muted); }
-.process-grid h3 { margin: 18px 0 10px; }
-.process-grid p { max-width: 32ch; color: var(--on-dark-muted); }
+.process .section-heading { margin-bottom: 0; }
+.process .section-heading > p { color: var(--on-dark-muted); }
+/* Timeline: numbered ring markers joined by a hairline; the final step is filled to read as "done". */
+.process-grid { --gap: clamp(28px, 4vw, 56px); display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap); margin-top: clamp(48px, 6vw, 80px); }
+.process-grid li { position: relative; }
+.process-grid li:not(:last-child)::after { content: ''; position: absolute; top: 28px; left: 72px; right: calc(var(--gap) * -1 + 16px); height: 1px; background: linear-gradient(90deg, rgb(244 196 48 / 0.6), var(--on-dark-line)); }
+.process-num { display: grid; place-items: center; width: 56px; height: 56px; color: var(--yellow); border: 1px solid rgb(244 196 48 / 0.55); border-radius: 50%; font-family: var(--font-accent); font-size: 1.25rem; font-style: italic; line-height: 1; }
+.process-grid li:last-child .process-num { color: var(--ink); background: var(--yellow); border-color: var(--yellow); }
+.process-grid h3 { margin: 28px 0 10px; }
+.process-grid p { max-width: 34ch; color: var(--on-dark-muted); }
+.process-actions { display: flex; flex-wrap: wrap; gap: 4px 20px; margin-top: 14px; }
+.on-dark .text-link { color: var(--yellow); }
 
 /* ─── CTA band ────────────────────────────────────────────────────────── */
 .cta-band { position: relative; isolation: isolate; overflow: hidden; padding: clamp(88px, 11vw, 144px) 0; background: #000; }
@@ -439,13 +444,17 @@ main:focus { outline: none; }
   body { padding-bottom: calc(72px + env(safe-area-inset-bottom)); }
 
   .compare-grid { grid-template-columns: 1fr; }
+  /* Vertical timeline on tablet and mobile */
+  .process-grid { grid-template-columns: 1fr; gap: 40px; }
+  .process-grid li { padding-left: 80px; }
+  .process-num { position: absolute; top: 0; left: 0; }
+  .process-grid li:not(:last-child)::after { top: 64px; bottom: -32px; left: 28px; right: auto; width: 1px; height: auto; background: linear-gradient(180deg, rgb(244 196 48 / 0.6), var(--on-dark-line)); }
+  .process-grid h3 { margin-top: 12px; }
   .intro-grid, .section-heading, .values-grid, .serve-grid, .cta-grid, .contact-grid, .catalog-grid, .category-grid { grid-template-columns: 1fr; }
   .section-heading { gap: 16px; }
   .values-grid > div:first-child, .catalog-aside { position: static; }
   .cta-band .cta-actions { justify-content: flex-start; }
   .catalog-image { aspect-ratio: 16 / 9; }
-  .process-grid li { padding-right: 24px; }
-  .process-grid li + li { padding-left: 24px; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .footer-grid > div:first-child { grid-column: 1 / -1; }
 }
@@ -460,9 +469,7 @@ main:focus { outline: none; }
   .hero-actions .button, .cta-actions .button { width: 100%; }
   .hero-trust { flex-direction: column; gap: 10px; }
   .category-card { min-height: 0; padding-top: 200px; }
-  .category-content ul, .serve-list, .process-grid { grid-template-columns: 1fr; }
-  .process-grid li, .process-grid li + li { padding: 32px 0; border-left: 0; border-bottom: 1px solid var(--on-dark-line); }
-  .process-grid li::before { margin-bottom: 16px; }
+  .category-content ul, .serve-list { grid-template-columns: 1fr; }
   .service-row { grid-template-columns: 1fr; gap: 4px; padding: 26px 0; }
   .contact-list > div { grid-template-columns: 1fr; gap: 6px; }
   .booking-frame { height: 780px; min-height: 0; }
