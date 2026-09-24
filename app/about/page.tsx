@@ -12,7 +12,7 @@ export const metadata = pageMeta(
 
 // The three commitments named in the vision statement itself.
 const visionPillars = [
-  ['Long-term customer relationships', 'Earning repeat work from homeowners, businesses, and managed properties through dependable service.'],
+  ['Long-term customer  relationships', 'Earning repeat work from homeowners, businesses, and managed properties through dependable service.'],
   ['Professional equipment', 'Continuing to invest in the right tools for residential and commercial surfaces.'],
   ['Multiple service markets', 'Growing the range of residential and commercial exterior cleaning we offer across Texas.'],
 ]
