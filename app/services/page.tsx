@@ -98,8 +98,8 @@ export default function ServicesPage() {
             </p>
           </div>
           <ScrollDissolveReveal
-            imageFront="/before.jfif"
-            imageBack="/after.jfif"
+            imageFront="/patio-before.webp"
+            imageBack="/patio-after.webp"
             label="Before and after pressure washing: a stained, algae-covered patio and steps becomes clean and bright."
           />
         </div>

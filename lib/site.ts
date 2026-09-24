@@ -58,19 +58,19 @@ export const nav = [
 
 // Page imagery is kept in one registry so each hero can use a distinct local asset.
 export const images = {
-  hero: { src: '/Gemini_Generated_Image_appy9aappy9aappy.jfif', alt: 'Exterior cleaning service for a residential property' },
-  about: { src: '/Gemini_Generated_Image_bwqyubwqyubwqyub.jfif', alt: 'Clean and well-maintained property exterior' },
-  services: { src: '/Gemini_Generated_Image_kcyda4kcyda4kcyd.jfif', alt: 'Professional pressure washing service' },
-  contact: { src: '/Gemini_Generated_Image_rpou0rrpou0rrpou.jfif', alt: 'Property exterior ready for professional cleaning' },
+  hero: { src: '/home-hero.webp', alt: 'Exterior cleaning service for a residential property' },
+  about: { src: '/about-hero.webp', alt: 'Clean and well-maintained property exterior' },
+  services: { src: '/services-hero.webp', alt: 'Professional pressure washing service' },
+  contact: { src: '/contact-hero.webp', alt: 'Property exterior ready for professional cleaning' },
   booking: { src: '/hero.webp', alt: 'Worker pressure washing a concrete driveway in front of a single-story home' },
-  cta: { src: '/Gemini_Generated_Image_sle08nsle08nsle0.jfif', alt: '' }, // decorative background
+  cta: { src: '/cta-background.webp', alt: '' }, // decorative background
   notFound: { src: '/og.jpg', alt: 'Krystal Clean Pressure Washing' },
   residential: {
     src: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80',
     alt: 'Modern two-story home exterior with a front lawn',
   },
   commercial: {
-    src: '/Gemini_Generated_Image_wjtljhwjtljhwjtl.jfif',
+    src: '/commercial.webp',
     alt: 'Commercial property prepared for professional exterior cleaning',
   },
 }
@@ -84,14 +84,14 @@ export const comparisons: Comparison[] = [
   {
     title: 'Patio & Step Cleaning',
     description: 'Algae, grime, and staining lifted from a concrete patio, steps, and the surrounding brickwork.',
-    before: { src: '/before.jfif', alt: 'Before cleaning: a patio and steps stained dark with algae and grime beside a brick wall' },
-    after: { src: '/after.jfif', alt: 'After cleaning: the same patio and steps, clean and bright' },
+    before: { src: '/patio-before.webp', alt: 'Before cleaning: a patio and steps stained dark with algae and grime beside a brick wall' },
+    after: { src: '/patio-after.webp', alt: 'After cleaning: the same patio and steps, clean and bright' },
   },
   {
     title: 'House & Driveway Washing',
     description: 'Driveway staining and exterior buildup cleared from the front of a two-story brick home.',
-    before: { src: '/another before.jfif', alt: 'Before cleaning: a brick home with a dark, stained driveway and dirty garage door' },
-    after: { src: '/anotherafter.jfif', alt: 'After cleaning: the same home with a clean driveway and bright exterior' },
+    before: { src: '/house-before.webp', alt: 'Before cleaning: a brick home with a dark, stained driveway and dirty garage door' },
+    after: { src: '/house-after.webp', alt: 'After cleaning: the same home with a clean driveway and bright exterior' },
   },
 ]
 

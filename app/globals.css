@@ -282,8 +282,8 @@ main:focus { outline: none; }
 .compare-arrow { display: grid; place-items: center; width: 44px; height: 44px; color: var(--ink); background: none; border: 1px solid var(--line); border-radius: var(--radius-sm); cursor: pointer; transition: border-color var(--dur) var(--ease-out), color var(--dur) var(--ease-out); }
 .compare-arrow:hover { color: var(--blue); border-color: var(--blue); }
 .compare-count { min-width: 5ch; color: var(--muted); font-size: var(--text-small); font-variant-numeric: tabular-nums; text-align: center; }
-.compare-dots { display: flex; gap: 4px; margin-left: 8px; }
-.compare-dots button { width: 32px; height: 44px; padding: 0; background: none; border: 0; cursor: pointer; }
+.compare-dots { display: flex; margin-left: 4px; }
+.compare-dots button { width: 44px; height: 44px; padding: 0 6px; background: none; border: 0; cursor: pointer; }
 .compare-dots button::before { content: ''; display: block; height: 3px; background: var(--line); border-radius: 2px; transition: background-color var(--dur) var(--ease-out); }
 .compare-dots button[aria-current='true']::before { background: var(--blue); }
 @keyframes ba-in { from { opacity: 0; } }
