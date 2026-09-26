@@ -1,17 +1,12 @@
-import { Droplets } from 'lucide-react'
+import Image from 'next/image'
+import { business } from '@/lib/site'
 
-// Interim brand mark. When the client logo arrives, replace this component's
-// contents with <Image src="/logo.svg" … /> and every usage (header, footer, splash) updates.
+// Client logo (background removed, resized from public/logo/squeaklogo.png).
+// Size is set per placement in CSS: header, footer, splash.
 export function Logo({ className = '' }: { className?: string }) {
   return (
     <span className={`logo ${className}`}>
-      <span className="logo-mark" aria-hidden="true">
-        <Droplets size={22} fill="currentColor" />
-      </span>
-      <span className="logo-text">
-        <strong>SQUEAK N</strong> <b>CLEAN</b>
-        <small>LLC</small>
-      </span>
+      <Image src="/logo/squeaklogo.webp" alt={business.name} width={320} height={307} priority />
     </span>
   )
 }

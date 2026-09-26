@@ -142,13 +142,10 @@ main:focus { outline: none; }
 .text-link:hover svg { transform: translateX(4px); }
 
 /* ─── Logo ─────────────────────────────────────────────────────────────── */
-.logo { display: inline-flex; align-items: center; gap: 12px; }
-.logo-mark { display: grid; place-items: center; width: 40px; height: 40px; color: #0b4f9c; background: #f4c430; border-radius: var(--radius-sm); box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.45); flex: none; }
-.logo-text { font-family: var(--font-heading); font-size: 1rem; font-weight: 800; letter-spacing: 0.08em; line-height: 1; }
-.logo-text b { color: #16834b; }
-.logo-text small { display: block; margin-top: 5px; color: var(--muted); font-size: 0.5625rem; letter-spacing: 0.24em; }
-.on-dark .logo-text b, .site-header .logo-text b { color: #f4c430; }
-.on-dark .logo-text small, .site-header .logo-text small { color: var(--on-dark-muted); }
+.logo { display: inline-flex; align-items: center; }
+.logo img { display: block; width: auto; height: 66px; filter: drop-shadow(0 4px 12px rgb(var(--shade) / 0.35)); }
+.footer .logo img { height: 140px; }
+.splash-logo img { height: clamp(120px, 22vh, 200px); }
 
 /* ─── Header: brand-tinted liquid glass ───────────────────────────────── */
 .site-header {
@@ -192,8 +189,6 @@ main:focus { outline: none; }
 /* The loader scales a 1200×800 stage to fit (same formula as its script); its readout plate
    starts 130 units above centre, so the logo sits just above it at every screen size. */
 .splash-logo { --stage: min(100vw / 1200, 100vh / 800); position: absolute; z-index: 1; top: calc(50% - 130 * var(--stage) - 36px); left: 50%; translate: -50% -100%; animation: splash-in 0.8s var(--ease-out) both; }
-.splash-logo .logo-text b { color: #f4c430; }
-.splash-logo .logo-text small { color: var(--on-dark-muted); }
 [data-splash='seen'] .splash { display: none; }
 @keyframes splash-in { from { opacity: 0; transform: scale(0.94); filter: blur(6px); } }
 @keyframes splash-out { to { opacity: 0; visibility: hidden; } }
@@ -510,8 +505,7 @@ main:focus { outline: none; }
 
 @media (max-width: 560px) {
   :root { --header-h: 64px; }
-  .logo-mark { width: 36px; height: 36px; }
-  .logo-text { font-size: 0.875rem; }
+  .logo img { height: 52px; }
   .hero { min-height: auto; }
   .hero-content { padding: calc(var(--header-h) + 48px) 0 56px; }
   .hero h1 { font-size: clamp(2.6rem, 11.5vw, 3.4rem); }
