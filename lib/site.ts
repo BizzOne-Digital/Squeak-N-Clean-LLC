@@ -7,7 +7,7 @@ export const business = {
   phone: '2816915874',
   phoneDisplay: '(281) 691-5874',
   phoneE164: '+12816915874',
-  email: 'michaeljwilliams434@gmail.com',
+  email: 'Michael2@squeak-n-clean.com',
   positioning:
     'Squeak N Clean LLC is a residential and commercial exterior cleaning company committed to delivering high-quality, reliable, and affordable pressure washing services.',
   mission:
