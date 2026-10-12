@@ -4,9 +4,9 @@ import type { Metadata } from 'next'
 export const business = {
   name: 'Squeak N Clean LLC',
   shortName: 'Squeak N Clean',
-  phone: '2816915874',
-  phoneDisplay: '(281) 691-5874',
-  phoneE164: '+12816915874',
+  phone: '346-678-8726',
+  phoneDisplay: '(346) 678-8726',
+  phoneE164: '+13466788726',
   email: 'Michael2@squeak-n-clean.com',
   positioning:
     'Squeak N Clean LLC is a residential and commercial exterior cleaning company committed to delivering high-quality, reliable, and affordable pressure washing services.',
