@@ -2,6 +2,7 @@ import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { DM_Sans, Manrope } from 'next/font/google'
 import Link from 'next/link'
+import Script from 'next/script'
 import { Phone } from 'lucide-react'
 import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
@@ -44,6 +45,15 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         </div>
         <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(localBusinessJsonLd())} />
         {process.env.NODE_ENV === 'production' && <Analytics />}
+        {/* LeadConnector chat widget, added for number-registration verification. Temporary. */}
+        <Script
+          src="https://widgets.leadconnectorhq.com/loader.js"
+          data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+          data-widget-id="6ae8aa7c629a77bacfb67d1c"
+          data-source="WEB_USER"
+          strategy="lazyOnload"
+        />
+
       </body>
     </html>
   )
