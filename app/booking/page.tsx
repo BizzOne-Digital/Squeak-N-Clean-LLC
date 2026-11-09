@@ -1,3 +1,4 @@
+import { Mail, Phone } from 'lucide-react'
 import Script from 'next/script'
 import { PageHero } from '@/components/page-hero'
 import { appointmentMailHref, business, images, pageMeta, telHref } from '@/lib/site'
@@ -20,8 +21,14 @@ export default function BookingPage() {
         image={images.booking}
       />
       <section className="section booking">
-        <div className="container">
-          <div className="booking-frame-wrap" data-reveal="fade-up" data-loading-label="Loading booking form…">
+        <div className="container booking-layout">
+          <div className="booking-form-card" data-reveal="fade-up">
+            <header className="booking-form-head">
+              <p className="eyebrow">Online booking</p>
+              <h2 className="h3">Request your appointment</h2>
+              <p>Tell us about your property and the service you need. It takes about two minutes.</p>
+            </header>
+          <div className="booking-frame-wrap" data-loading-label="Loading booking form…">
             <iframe
               src={`https://api.leadconnectorhq.com/widget/form/${FORM_ID}`}
               id={`inline-${FORM_ID}`}
@@ -43,11 +50,21 @@ export default function BookingPage() {
               data-cookie-consent-provider="auto"
             />
           </div>
+          </div>
           <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="afterInteractive" />
-          <p className="booking-help">
-            Form not loading? Call <a href={telHref} className="text-link">{business.phoneDisplay}</a> or{' '}
-            <a href={appointmentMailHref} className="text-link">email an appointment request</a>.
-          </p>
+          <aside className="booking-side on-dark" data-reveal="fade-up">
+            <p className="eyebrow">What happens next</p>
+            <ol className="booking-steps">
+              <li><strong>Submit the form</strong><span>Share your address, service and preferred time.</span></li>
+              <li><strong>We review your request</strong><span>We check availability and any property details.</span></li>
+              <li><strong>Confirm your time</strong><span>We contact you to lock in your appointment.</span></li>
+            </ol>
+            <div className="booking-contact">
+              <p>Prefer to talk to someone?</p>
+              <a href={telHref} className="button button-yellow"><Phone size={17} aria-hidden="true" /> Call {business.phoneDisplay}</a>
+              <a href={appointmentMailHref} className="text-link"><Mail size={16} aria-hidden="true" /> Email an appointment request</a>
+            </div>
+          </aside>
         </div>
       </section>
     </>

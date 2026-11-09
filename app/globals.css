@@ -406,12 +406,27 @@ main:focus { outline: none; }
 .booking-card p { color: var(--muted); }
 .booking-card .button { margin-top: 28px; }
 .booking-card .cta-actions .button { margin-top: 0; }
-.booking-fallback { max-width: 780px; }
-.booking-frame-wrap { position: relative; display: grid; overflow: hidden; background: var(--paper); border: 1px solid var(--glow-line); border-radius: var(--radius-md); box-shadow: var(--shadow-sm), 0 0 36px -14px rgb(0 201 167 / 0.4); }
+.booking-layout { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: clamp(24px, 3vw, 40px); align-items: start; }
+.booking-form-card { position: relative; overflow: hidden; background: var(--white); border: 1px solid var(--glow-line); border-radius: var(--radius-md); box-shadow: var(--shadow-md), 0 0 48px -16px rgb(0 201 167 / 0.45); }
+.booking-form-card::before { content: ''; position: absolute; top: 0; right: 0; left: 0; z-index: 1; height: 5px; background: var(--grad); }
+.booking-form-head { padding: clamp(28px, 4vw, 44px) clamp(22px, 4vw, 44px) 24px; background: var(--grad-soft); border-bottom: 1px solid var(--line); }
+.booking-form-head .eyebrow { margin-bottom: 12px; }
+.booking-form-head h2 { font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2rem); }
+.booking-form-head p:last-child { margin-top: 8px; color: var(--muted); }
+.booking-frame-wrap { position: relative; display: grid; padding: clamp(8px, 2vw, 20px); background: var(--white); }
+.booking-side { position: sticky; top: calc(var(--header-h) + 24px); padding: clamp(28px, 3vw, 36px); background: var(--grad-dark-glow); color: var(--on-dark); border: 1px solid var(--glow-line); border-radius: var(--radius-md); box-shadow: var(--shadow-md); }
+.booking-steps { display: grid; gap: 22px; margin: 8px 0 32px; padding: 0; list-style: none; counter-reset: step; }
+.booking-steps li { position: relative; display: grid; gap: 4px; padding-left: 52px; counter-increment: step; }
+.booking-steps li::before { content: counter(step); position: absolute; top: -2px; left: 0; display: grid; place-items: center; width: 36px; height: 36px; color: var(--blue-deep); font-weight: 800; background: var(--grad); border-radius: var(--radius-pill); box-shadow: 0 0 18px -4px rgb(0 201 167 / 0.6); }
+.booking-steps strong { color: var(--white); }
+.booking-steps span { color: var(--on-dark-muted); font-size: var(--text-small); }
+.booking-contact { display: grid; gap: 14px; padding-top: 24px; border-top: 1px solid var(--on-dark-line); }
+.booking-contact p { color: var(--on-dark-muted); font-weight: 600; }
+.booking-contact .button { justify-content: center; }
+.booking-contact .text-link { display: inline-flex; align-items: center; gap: 8px; color: var(--accent); }
 /* Loading state: sits behind the transparent iframe until the provider paints. */
 .booking-frame-wrap::before { content: attr(data-loading-label); position: absolute; inset: 0; display: grid; place-items: center; color: var(--muted); font-weight: 600; }
 .booking-frame { position: relative; display: block; width: 100%; height: min(85vh, 900px); min-height: 720px; border: 0; background: transparent; color-scheme: normal; }
-.booking-help { margin-top: 18px; color: var(--muted); }
 
 /* ─── Footer ──────────────────────────────────────────────────────────── */
 .footer { padding: clamp(56px, 7vw, 88px) 0 32px; background: var(--grad-dark-glow); border-top: 1px solid var(--glow-line); }
@@ -494,7 +509,8 @@ main:focus { outline: none; }
   .process-num { position: absolute; top: 0; left: 0; }
   .process-grid li:not(:last-child)::after { top: 64px; bottom: -32px; left: 28px; right: auto; width: 1px; height: auto; background: rgb(255 255 255 / 0.6); }
   .process-grid h3 { margin-top: 12px; }
-  .intro-grid, .section-heading, .values-grid, .serve-grid, .cta-grid, .contact-grid, .catalog-grid, .category-grid { grid-template-columns: 1fr; }
+  .intro-grid, .section-heading, .values-grid, .serve-grid, .cta-grid, .contact-grid, .catalog-grid, .category-grid, .booking-layout { grid-template-columns: 1fr; }
+  .booking-side { position: static; }
   .section-heading { gap: 16px; }
   .values-grid > div:first-child, .catalog-aside { position: static; }
   .cta-band .cta-actions { justify-content: flex-start; }
