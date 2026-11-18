@@ -34,7 +34,7 @@ export default function BookingPage() {
               id={`inline-${FORM_ID}`}
               title={`Book an appointment with ${business.name}`}
               className="booking-frame"
-              style={{ height: 955 }}
+              style={{ height: 1106 }}
               data-layout="{'id':'INLINE'}"
               data-trigger-type="alwaysShow"
               data-trigger-value=""
@@ -43,7 +43,7 @@ export default function BookingPage() {
               data-deactivation-type="neverDeactivate"
               data-deactivation-value=""
               data-form-name="Form 1"
-              data-height="955"
+              data-height="1106"
               data-layout-iframe-id={`inline-${FORM_ID}`}
               data-form-id={FORM_ID}
               data-cookie-consent="true"
